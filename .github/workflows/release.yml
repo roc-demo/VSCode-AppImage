@@ -19,7 +19,7 @@ jobs:
         run: sudo apt-get install -y libfuse2 imagemagick   
       - name: Build
         id: build
-        uses: valicm/appimage-bash@main
+        uses: roc-demo/appimage-bash@main
         with:
           version_url: 'https://code.visualstudio.com/sha/download?build=stable\&os=linux-x64'
           version_file: 'resources/app/package.json'
@@ -36,7 +36,7 @@ jobs:
         uses: marvinpinto/action-automatic-releases@latest
         with:
           title: ${{ env.APP_NAME }} AppImage ${{ env.APP_VERSION }}
-          automatic_release_tag: latest
+          automatic_release_tag: v${{ env.APP_VERSION }}
           prerelease: false
           files: |
             dist/
